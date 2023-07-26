@@ -2,13 +2,8 @@
 # https://github.com/hashicorp/integration-template#metadata-configuration
 integration {
   name = "VMware vSphere"
-  description = "TODO"
+  description = "The vSphere plugin is able to create vSphere virtual machines for use with any VMware product."
   identifier = "packer/BrandonRomano/vsphere"
-  component {
-    type = "builder"
-    name = "vSphere Supervisor"
-    slug = "vsphere-supervisor"
-  }
   component {
     type = "builder"
     name = "vSphere Clone"
@@ -18,6 +13,11 @@ integration {
     type = "builder"
     name = "vSphere ISO"
     slug = "vsphere-iso"
+  }
+  component {
+    type = "builder"
+    name = "vSphere Supervisor"
+    slug = "vsphere-supervisor"
   }
   component {
     type = "post-processor"
