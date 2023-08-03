@@ -266,7 +266,9 @@ referenced will be available in your builder.
 
 Example usage from a builder:
 
-	`wget http://{{ .HTTPIP }}:{{ .HTTPPort }}/foo/bar/preseed.cfg`
+```
+wget http://{{ .HTTPIP }}:{{ .HTTPPort }}/foo/bar/preseed.cfg
+```
 
 <!-- End of code generated from the comments of the HTTPConfig struct in multistep/commonsteps/http_config.go; -->
 
@@ -815,27 +817,31 @@ Example that creates two network adapters:
 
 In JSON:
 ```json
-  "network_adapters": [
-    {
-      "network": "VM Network",
-      "network_card": "vmxnet3"
-    },
-    {
-      "network": "OtherNetwork",
-      "network_card": "vmxnet3"
-    }
-  ],
+
+	"network_adapters": [
+	  {
+	    "network": "VM Network",
+	    "network_card": "vmxnet3"
+	  },
+	  {
+	    "network": "OtherNetwork",
+	    "network_card": "vmxnet3"
+	  }
+	],
+
 ```
 In HCL2:
 ```hcl
-  network_adapters {
-      network = "VM Network"
-      network_card = "vmxnet3"
-  }
-  network_adapters {
-      network = "OtherNetwork"
-      network_card = "vmxnet3"
-  }
+
+	network_adapters {
+	    network = "VM Network"
+	    network_card = "vmxnet3"
+	}
+	network_adapters {
+	    network = "OtherNetwork"
+	    network_card = "vmxnet3"
+	}
+
 ```
 
 <!-- End of code generated from the comments of the NIC struct in builder/vsphere/iso/step_create.go; -->
@@ -874,71 +880,79 @@ Example that will create a 15GB and a 20GB disk on the VM. The second disk will 
 
 In JSON:
 ```json
-  "storage": [
-    {
-      "disk_size": 15000
-    },
-    {
-      "disk_size": 20000,
-      "disk_thin_provisioned": true
-    }
-  ],
+
+	"storage": [
+	  {
+	    "disk_size": 15000
+	  },
+	  {
+	    "disk_size": 20000,
+	    "disk_thin_provisioned": true
+	  }
+	],
+
 ```
 In HCL2:
 ```hcl
-  storage {
-      disk_size = 15000
-  }
-  storage {
-      disk_size = 20000
-      disk_thin_provisioned = true
-  }
+
+	storage {
+	    disk_size = 15000
+	}
+	storage {
+	    disk_size = 20000
+	    disk_thin_provisioned = true
+	}
+
 ```
 
 Example that creates 2 pvscsi controllers and adds 2 disks to each one:
 
 In JSON:
 ```json
-  "disk_controller_type": ["pvscsi", "pvscsi"],
-  "storage": [
-    {
-      "disk_size": 15000,
-      "disk_controller_index": 0
-    },
-    {
-      "disk_size": 15000,
-      "disk_controller_index": 0
-    },
-    {
-      "disk_size": 15000,
-      "disk_controller_index": 1
-    },
-    {
-      "disk_size": 15000,
-      "disk_controller_index": 1
-    }
-  ],
+
+	"disk_controller_type": ["pvscsi", "pvscsi"],
+	"storage": [
+	  {
+	    "disk_size": 15000,
+	    "disk_controller_index": 0
+	  },
+	  {
+	    "disk_size": 15000,
+	    "disk_controller_index": 0
+	  },
+	  {
+	    "disk_size": 15000,
+	    "disk_controller_index": 1
+	  },
+	  {
+	    "disk_size": 15000,
+	    "disk_controller_index": 1
+	  }
+	],
+
 ```
 
 In HCL2:
 ```hcl
-  disk_controller_type = ["pvscsi", "pvscsi"]
-  storage {
-     disk_size = 15000,
-     disk_controller_index = 0
-  }
-  storage {
-     disk_size = 15000
-     disk_controller_index = 0
-  }
-  storage {
-     disk_size = 15000
-     disk_controller_index = 1
-  }
-  storage {
-     disk_size = 15000
-     disk_controller_index = 1
-  }
+
+	disk_controller_type = ["pvscsi", "pvscsi"]
+	storage {
+	   disk_size = 15000,
+	   disk_controller_index = 0
+	}
+	storage {
+	   disk_size = 15000
+	   disk_controller_index = 0
+	}
+	storage {
+	   disk_size = 15000
+	   disk_controller_index = 1
+	}
+	storage {
+	   disk_size = 15000
+	   disk_controller_index = 1
+	}
+
 ```
 
 <!-- End of code generated from the comments of the DiskConfig struct in builder/vsphere/common/storage_config.go; -->
@@ -975,22 +989,28 @@ Example usage:
 In JSON:
 ```json
 ...
-  "vm_name": "example-ubuntu",
+
+	"vm_name": "example-ubuntu",
+
 ...
-  "export": {
-    "force": true,
-    "output_directory": "./output_vsphere"
-  },
+
+	"export": {
+	  "force": true,
+	  "output_directory": "./output_vsphere"
+	},
+
 ```
 In HCL2:
 ```hcl
-  # ...
-  vm_name = "example-ubuntu"
-  # ...
-  export {
-    force = true
-    output_directory = "./output_vsphere"
-  }
+
+	# ...
+	vm_name = "example-ubuntu"
+	# ...
+	export {
+	  force = true
+	  output_directory = "./output_vsphere"
+	}
+
 ```
 The above configuration would create the following files:
 
