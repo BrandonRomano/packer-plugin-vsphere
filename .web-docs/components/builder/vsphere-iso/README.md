@@ -5,7 +5,7 @@ This builder uses the vSphere API, and creates virtual machines remotely. It
 starts from an ISO file and creates new VMs from scratch.
 
 - VMware Player is not required.
-- It uses the official vCenter Server API, and does not require ESXi host [modification](/packer/integrations/BrandonRomano/vsphere/latest/components/builder/vsphere-iso#building-on-a-remote-vsphere-hypervisor)
+- It uses the official vCenter Server API, and does not require ESXi host [modification](/packer/integrations/hashicorp/vsphere/latest/components/builder/vsphere-iso#building-on-a-remote-vsphere-hypervisor)
 - The builder supports versions following the VMware Product Lifecycle Matrix
   from General Availability to End of General Support. Builds on versions that
   are end of support may work, but configuration options may throw errors if
@@ -1363,7 +1363,7 @@ Minimal example of usage to import a OVF template:
   
   NOTE: If using an Amazon EBS builder, you can specify the interface
   WinRM connects to via
-  [`ssh_interface`](/packer/integrations/BrandonRomano/amazon/latest/components/builder/ebs#ssh_interface)
+  [`ssh_interface`](/packer/integrations/hashicorp/amazon/latest/components/builder/ebs#ssh_interface)
 
 - `winrm_no_proxy` (bool) - Setting this to `true` adds the remote
   `host:port` to the `NO_PROXY` environment variable. This has the effect of

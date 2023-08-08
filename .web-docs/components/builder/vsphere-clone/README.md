@@ -4,7 +4,7 @@ Artifact BuilderId: `jetbrains.vsphere`
 This builder clones VMs from existing templates.
 
 - VMware Player is not required.
-- It uses the official vCenter Server API, and does not require ESXi host [modification](/packer/integrations/BrandonRomano/vsphere/latest/components/builder/vsphere-iso#building-on-a-remote-vsphere-hypervisor)
+- It uses the official vCenter Server API, and does not require ESXi host [modification](/packer/integrations/hashicorp/vsphere/latest/components/builder/vsphere-iso#building-on-a-remote-vsphere-hypervisor)
 - The builder supports versions following the VMware Product Lifecycle Matrix
   from General Availability to End of General Support. Builds on versions that
   are end of support may work, but configuration options may throw errors if
@@ -72,7 +72,7 @@ necessary for this build to succeed and can be found further down the page.
 - `destroy` (bool) - If set to true, the VM will be destroyed after the builder completes
 
 - `vapp` (vAppConfig) - Set the vApp Options to a virtual machine.
-  See the [vApp Options Configuration](/packer/integrations/BrandonRomano/vmware/latest/components/builder/vsphere-clone#vapp-options-configuration)
+  See the [vApp Options Configuration](/packer/integrations/hashicorp/vmware/latest/components/builder/vsphere-clone#vapp-options-configuration)
   to know the available options and how to use it.
 
 <!-- End of code generated from the comments of the CloneConfig struct in builder/vsphere/clone/step_clone.go; -->
@@ -1120,11 +1120,11 @@ boot time.
 
 
 -> **NOTE:** Packer uses vApp Options to inject ssh public keys to the virtual machine.
-The [temporary_key_pair_name](/packer/integrations/BrandonRomano/vsphere/latest/components/builder/vsphere-clone#temporary_key_pair_name) will only work
+The [temporary_key_pair_name](/packer/integrations/hashicorp/vsphere/latest/components/builder/vsphere-clone#temporary_key_pair_name) will only work
 if the template being cloned contains the vApp property `public-keys`.
-If using [ssh_private_key_file](/packer/integrations/BrandonRomano/vsphere/latest/components/builder/vsphere-clone#ssh_private_key_file), provide
-the public key via [configuration_parameters](/packer/integrations/BrandonRomano/vsphere/latest/components/builder/vsphere-clone#configuration_parameters) or
-[vApp Options Configuration](/packer/integrations/BrandonRomano/vsphere/latest/components/builder/vsphere-clone#vapp-options-configuration) whenever the `guestinto.userdata`
+If using [ssh_private_key_file](/packer/integrations/hashicorp/vsphere/latest/components/builder/vsphere-clone#ssh_private_key_file), provide
+the public key via [configuration_parameters](/packer/integrations/hashicorp/vsphere/latest/components/builder/vsphere-clone#configuration_parameters) or
+[vApp Options Configuration](/packer/integrations/hashicorp/vsphere/latest/components/builder/vsphere-clone#vapp-options-configuration) whenever the `guestinto.userdata`
 is available. See [DataSourceVMware](https://cloudinit.readthedocs.io/en/latest/topics/data-source/vmware.html) in
 cloud-init 21.3 and later for more information.
 
@@ -1140,7 +1140,7 @@ cloud-init 21.3 and later for more information.
   
   NOTE: If using an Amazon EBS builder, you can specify the interface
   WinRM connects to via
-  [`ssh_interface`](/packer/integrations/BrandonRomano/amazon/latest/components/builder/ebs#ssh_interface)
+  [`ssh_interface`](/packer/integrations/hashicorp/amazon/latest/components/builder/ebs#ssh_interface)
 
 - `winrm_no_proxy` (bool) - Setting this to `true` adds the remote
   `host:port` to the `NO_PROXY` environment variable. This has the effect of
